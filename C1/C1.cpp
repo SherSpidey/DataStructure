@@ -15,18 +15,20 @@ int main(){
 //    testExtra();
 //    testExtra(1);
 //    testExtra(2);
-    testExtra(3);
-    testExtra(4);
+//    testExtra(3);
+//    testExtra(4);
+    testExtra(5);
     return 0;
 }
 
 void testBubbleSort(int n){
     switch (n) {
-        case 0:
+        case 0:{
             int A[]={12,4,3,2,1};
             bubbleSort1A(A,sizeof(A)/sizeof(int));
             for(int i :A)
                 cout<<i<<endl;
+        }
             break;
     }
 };
@@ -49,6 +51,13 @@ void testExtra(int n){
             break;
         case 4:
             cout<<fibI(10)<<endl;
+            break;
+        case 5:{
+            int A[]={12,4,3,54,2,1,41};
+            int x1,x2;
+            max2(A,0,sizeof(A)/sizeof(int),x1,x2);
+            cout<<A[x1]<<","<<A[x2]<<endl;
+        }
             break;
     }
 }

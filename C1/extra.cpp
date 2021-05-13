@@ -43,5 +43,45 @@ long long fibI(int n){
     return g;
 }
 
+//二分递归确认出数组最大与次大
+void max2(int A[],int lo,int hi,int &x1,int &x2){
+    if(lo+2==hi){                                //若数组剩余2个元素
+        if(A[lo+1]>A[lo]){
+            x1=lo+1;
+            x2=lo;
+        } else{
+            x1=lo;
+            x2=lo+1;
+        }
+        return;
+    }
+    if(lo+3==hi){                               //若数组只剩余3个元素
+        if(A[lo+1]>A[lo]){
+            x1=lo+1;
+            x2=lo;
+        } else{
+            x1=lo;
+            x2=lo+1;
+        }
+        if(A[x2]<A[lo+2])
+            if(A[x1]<A[x2=lo+2]){
+                x2=x1;
+                x1=lo+2;
+            }
+        return;
+    }
+    int x1L,x2L;
+    max2(A,lo,(hi+lo)/2,x1L,x2L);             //分而治之，将数组分成两部分，并求出其最大与次大值
+    int x1R,x2R;
+    max2(A,(hi+lo)/2,hi,x1R,x2R);
+    if(A[x1L]>A[x1R]){
+        x1=x1L;
+        x2=A[x1R]>A[x2L]?x1R:x2L;
+    }else{
+        x1=x1R;
+        x2=A[x1L]>A[x2R]?x1L:x2R;
+    }
+}
+
 
 
