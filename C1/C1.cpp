@@ -17,7 +17,7 @@ int main(){
 //    testExtra(2);
 //    testExtra(3);
 //    testExtra(4);
-    testExtra(5);
+    testExtra(3);
     return 0;
 }
 
@@ -47,7 +47,7 @@ void testExtra(int n){
             break;
         case 3:
             long long a;
-            cout<<fib(10,a)<<endl;
+            cout<<fib(8,a)<<endl;
             break;
         case 4:
             cout<<fibI(10)<<endl;
