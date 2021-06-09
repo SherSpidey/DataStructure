@@ -2,7 +2,7 @@
 // Created by 62736 on 2021/5/13.
 //
 
-int countOnes(unsigned int n){                   //对数复杂度
+unsigned int countOnes(unsigned int n){                   //对数复杂度
     if(n)         //如若不为0，继续计数，递归
         return countOnes(n>>1)+(1&n);//反复检查最低位，为1则计数
     return 0;     //否则则返回

@@ -17,7 +17,8 @@ int main(){
 //    testExtra(2);
 //    testExtra(3);
 //    testExtra(4);
-    testExtra(3);
+    testExtra(5);
+    cout<<isdigit('5');
     return 0;
 }
 
