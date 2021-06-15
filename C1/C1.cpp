@@ -11,7 +11,7 @@ void testExtra(int n=0);
 
 //Begin test
 int main(){
-//    testBubbleSort();
+    testBubbleSort();
 //    testExtra();
 //    testExtra(1);
 //    testExtra(2);
@@ -32,7 +32,7 @@ void testBubbleSort(int n){
         }
             break;
     }
-};
+}
 
 void testExtra(int n){
     int A[]={4,3,2,1};
@@ -59,6 +59,8 @@ void testExtra(int n){
             max2(A,0,sizeof(A)/sizeof(int),x1,x2);
             cout<<A[x1]<<","<<A[x2]<<endl;
         }
+            break;
+        default:
             break;
     }
 }
