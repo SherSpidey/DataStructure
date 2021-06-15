@@ -6,3 +6,5 @@
 #define DATASTRUCTURE_C2_H
 
 #endif //DATASTRUCTURE_C2_H
+
+#include "myVector.h"
