@@ -18,7 +18,7 @@ int main(){
     myList.sort();
     myList.traverse(visit);
 
-    MyList<int> another_list = MyList<int>(myList.first()->succ,4);
+    MyList<int> another_list = MyList<int>(myList(1),4);
     another_list.insertAsLast(3);
     another_list.sort();
     another_list.traverse(visit);

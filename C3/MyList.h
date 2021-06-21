@@ -38,6 +38,7 @@ public:
     Rank size() const { return _size; } //规模
     bool empty() const { return _size <= 0; } //判空
     T& operator[] ( Rank r ) const; //重载，支持循秩访问（效率低）
+    ListNodePosi<T> operator() (Rank r);
     ListNodePosi<T> first() const { return header->succ; } //首节点位置
     ListNodePosi<T> last() const { return trailer->pred; } //末节点位置
     bool valid ( ListNodePosi<T> p ) //判断位置p是否对外合法
@@ -85,6 +86,14 @@ T& MyList<T>::operator[](Rank r) const {
     while(0 < r--)
         p = p->succ;
     return p->data;
+}
+
+template <typename T>
+ListNodePosi<T> MyList<T>::operator()(Rank r) {
+    ListNodePosi<T> p = first();
+    while(0 < r--)
+        p = p->succ;
+    return p;
 }
 
 template <typename T>
