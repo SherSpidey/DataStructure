@@ -16,6 +16,7 @@ int main(){
     myList.insert(myList.last(),5);
     myList.traverse(visit);
     myList.sort();
+    myList.reverse();
     myList.traverse(visit);
 
     MyList<int> another_list = MyList<int>(myList(1),4);

@@ -302,3 +302,22 @@ ListNodePosi<T> MyList<T>::merge(ListNodePosi<T> &p, int n, MyList<T> & L, ListN
     return pp->succ;
 }
 
+template<typename T>
+void MyList<T>::reverse() {
+    ListNodePosi<T> T1 = first();
+    ListNodePosi<T> T2 = T1->succ;
+    for(int i =1 ;i<_size;i++){         //中间部分的连接交换
+        ListNodePosi<T> temp = T2->succ;
+        T1->pred = T2;
+        T2->succ = T1;
+        T1 = T2;
+        T2 = temp;
+    }
+    T2=first();                         //首位部分的连接交换，交换前要先保存
+    T1=last();
+    T1->pred = header;
+    header -> succ =T1;         //交换后first就不同了
+    T2 ->succ = trailer;
+    trailer ->pred = T2;        //交换后last就不同了
+}
+
