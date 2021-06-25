@@ -28,7 +28,8 @@ int main(){
 
     cout<<"this is C4!"<<endl;
 
-    char str[] {"()()())"};
+    char str[] {"{()+()+([])}"};
     cout<<reParen(str,sizeof(str)/sizeof(char))<<endl;
     cout<<paren(str,0,sizeof(str)/sizeof(char))<<endl;
+    cout<<paren_2(str,0,sizeof(str)/sizeof(char))<<endl;
 }

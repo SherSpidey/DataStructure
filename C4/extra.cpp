@@ -55,17 +55,44 @@ bool paren(const char exp[], int lo, int hi) {
     return paren(exp,lo+1,mi-1)&&paren(exp, mi + 1, hi);
 }
 
+bool paren_2(const char exp[], int lo, int hi){
+    MyStack<char> S;        //使用栈记录已发现但未匹配的括号
+    for(int i=lo; i<= hi;i++)
+        switch (exp[i]) {
+            case '(':
+            case '[':
+            case '{':
+                S.push(exp[i]);
+                break;
+            case ')':
+                if (S.empty()||'('!=S.pop())
+                    return false;
+                break;
+            case ']':
+                if (S.empty()||'['!=S.pop())
+                    return false;
+                break;
+            case '}':
+                if (S.empty()||'{'!=S.pop())
+                    return false;
+                break;
+            default:
+                break;
+        }
+    return S.empty();
+}
+
 bool reParen(const char exp[], int len) {
     MyStack<char> myStack;
     for (int i =0 ; i < len ; i++){
-        if (exp[i] == ')'){
+        if (exp[i] == ')'){             //当前括号为')'且不为空，出栈
             if (myStack.empty())
                 return false;
             else
                 myStack.pop();
         }
         if (exp[i] == '(')
-            myStack.push(exp[i]);
+            myStack.push(exp[i]);       //左括号，入栈
     }
     if(myStack.empty())
         return true;

@@ -20,6 +20,8 @@ bool paren(const char exp[], int lo, int hi);
 
 bool reParen(const char exp[], int len);
 
+bool paren_2(const char exp[], int lo, int hi);
+
 class List_visit {
 
 public:
