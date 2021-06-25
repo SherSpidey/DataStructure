@@ -27,4 +27,8 @@ int main(){
     cvt.traverse(visit);
 
     cout<<"this is C4!"<<endl;
+
+    char str[] {"()()()(()"};
+    cout<<reParen(str,sizeof(str)/sizeof(char))<<endl;
+    cout<<paren(str,0,sizeof(str)/sizeof(char))<<endl;
 }

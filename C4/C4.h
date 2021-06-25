@@ -12,19 +12,24 @@
 
 using namespace std;
 
-void convert(MyStack<char> & S, __int64 n, int base);
-void convert2(MyStack<char> & S, __int64 n, int base);
+void convert(MyStack<char> &S, __int64 n, int base);
 
-class List_visit{
+void convert2(MyStack<char> &S, __int64 n, int base);
+
+bool paren(const char exp[], int lo, int hi);
+
+bool reParen(const char exp[], int len);
+
+class List_visit {
 
 public:
-    template <typename T>
-    void operator() (T e){
-        cout<<e<<' ';
+    template<typename T>
+    void operator()(T e) {
+        cout << e << ' ';
     }
 
-    void operator() (){
-        cout<<endl;
+    void operator()() {
+        cout << endl;
     }
 
 };
