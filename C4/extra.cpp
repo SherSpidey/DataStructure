@@ -33,7 +33,7 @@ void trim(const char exp[], int &lo, int &hi) {
 int divide(const char exp[], int lo, int hi) {
     int mi = lo;
     int crc = 1;        //左括号为1，右括号为-1，进行匹配
-    while ((0 < crc) && (++mi < hi)) {           //匹配一段左右数量相同的括号段，crc为0即表示成功匹配，返回
+    while ((0 < crc) && (++mi <= hi)) {           //匹配一段左右数量相同的括号段，crc为0即表示成功匹配，返回
         if (exp[mi] == ')')                      //如果不能匹配，mi会大于hi
             crc--;
         if (exp[mi] == '(')
