@@ -43,10 +43,10 @@ protected:
     void heapSort(Rank lo, Rank hi); //堆排序
 public:
     //构造函数
-    MyVector(int c = DEFAULT_CAPACITY, int s = 0, T v = 0)  //容量为c，规模为s，元素初始值为v
+    MyVector(int c = DEFAULT_CAPACITY, int s = 0)  //容量为c，规模为s，元素初始值为v
     {
         _elem = new T[_capacity = c];
-        for (_size = 0; _size < s; _elem[_size++] = v);
+        _size = s;
     }
 
     MyVector(T const *A, Rank n) { copyFrom(A, 0, n); }  //从数组复制指定长度元素

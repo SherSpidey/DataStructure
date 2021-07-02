@@ -32,4 +32,19 @@ int main(){
     cout<<reParen(str,sizeof(str)/sizeof(char))<<endl;
     cout<<paren(str,0,sizeof(str)/sizeof(char))<<endl;
     cout<<paren_2(str,0,sizeof(str)/sizeof(char))<<endl;
+
+    MyStack<int> cord;
+    placeQueen(8,cord);
+
+    cord.traverse(visit);
+
+    MyQueue<int> myQueue;
+    myQueue.enqueue(0);
+    myQueue.enqueue(1);
+    myQueue.enqueue(2);
+    myQueue.traverse(visit);
+    cout<<myQueue.front()<<endl;
+    cout<<myQueue.dequeue()<<endl;
+    myQueue.traverse(visit);
+
 }

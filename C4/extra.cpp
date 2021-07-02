@@ -98,3 +98,35 @@ bool reParen(const char exp[], int len) {
         return true;
     return false;
 }
+
+void placeQueen(int N, MyStack<int>& cord){
+    MyStack<Queen> solu;
+    Queen q (0,0);  //初始坐标为原点
+    do{
+        if(N<=q.x){         //当前遍历超出棋盘
+            q=solu.pop();   //上一点不符合要求，出栈
+            cord.pop();     //坐标x出栈
+            cord.pop();     //坐标y出栈
+            q.x++;
+        }
+        //重载的==可以体现在find函数中
+        if((q.x<N)&&(solu.empty()||solu.find(q)<0)){    //前提条件，在棋盘上才能入栈，然后是没有落子可以随意入栈，有子则需要判断冲突
+            solu.push(q);
+            cord.push(q.x);
+            cord.push(q.y);
+            Queen temp(0,q.y+1);                //创建下一颗棋子，位于当前棋子的下一支路
+            q=temp;
+        }else
+            q.x++;                      //遍历当前支路的下一坐标
+    } while (solu.size()<N);
+}
+
+
+
+
+
+
+
+
+
+

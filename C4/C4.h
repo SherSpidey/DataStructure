@@ -9,6 +9,7 @@
 
 #include "iostream"
 #include "MyStack.h"
+#include "MyQueue.h"
 
 using namespace std;
 
@@ -21,6 +22,8 @@ bool paren(const char exp[], int lo, int hi);
 bool reParen(const char exp[], int len);
 
 bool paren_2(const char exp[], int lo, int hi);
+
+void placeQueen(int N, MyStack<int> &cord);
 
 class List_visit {
 
