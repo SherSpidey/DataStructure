@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include "cstddef"
 #include "../C4/MyStack.h"
+#include "../C4/MyQueue.h"
 
 #define stature(p) ((p)?(p)->height:-1)     //节点高度
 
@@ -289,5 +290,21 @@ void BinNode<T>::travPost(VST &visit) {
             break;
         default:
             break;
+    }
+}
+
+//层次遍历
+template<typename T>
+template<typename VST>
+void BinNode<T>::travLevel(VST &visit) {
+    MyQueue<BinNodePosi<T>> Q;
+    Q.enqueue(this);    //根节点如队列
+    while (!Q.empty()){
+        BinNodePosi<T> x = Q.dequeue();
+        visit(x->data);
+        if(HasLChild(*x))
+            Q.enqueue(x->lc);
+        if(HasRChild(*x))
+            Q.enqueue(x->rc);
     }
 }
