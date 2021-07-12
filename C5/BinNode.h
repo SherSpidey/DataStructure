@@ -78,6 +78,17 @@ struct BinNode{
     }//等于
 };
 
+//向下递归，求其规模
+template<typename T>
+int BinNode<T>::size() {
+    int s = 1;
+    if(lc)
+        s += lc->size();
+    if(rc)
+        s += rc->size();
+    return s;
+}
+
 template<typename T, typename VST>
 void travPre_R(BinNodePosi<T> x, VST& visit){
     //为空退出

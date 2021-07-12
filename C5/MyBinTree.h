@@ -63,7 +63,7 @@ int MyBinTree<T>::updateHeight(BinNodePosi<T> x) {
 template<typename T>
 void MyBinTree<T>::updateHeightAbove(BinNodePosi<T> x) {
     //自下而上，依次更新所有父辈节点
-    while (x){
+    while (x){      //可以优化，高度停止变化可以提前停止
         updateHeight(x);
         x = x->parent;
     }
@@ -79,7 +79,7 @@ template<typename T>
 BinNodePosi<T> MyBinTree<T>::insertAsRC(BinNodePosi<T> x, const T &e) {
     _size++;
     x->insertAsRC(e);
-    updateHeight(x);
+    updateHeightAbove(x);   //向上更新高度
     return x->rc;
 }
 
@@ -87,7 +87,7 @@ template<typename T>
 BinNodePosi<T> MyBinTree<T>::insertAsLC(BinNodePosi<T> x, const T &e) {
     _size++;
     x->insertAsLC(e);
-    updateHeight(x);
+    updateHeightAbove(x);       //向上更新高度
     return x->lc;
 }
 
