@@ -30,17 +30,17 @@ struct ListNode { //列表节点模板类（以双向链表形式实现）
     ListNodePosi<T> insertAsSucc(T const &e); //紧随当前节点之后插入新节点
 };
 
-template <typename T>
+template<typename T>
 ListNodePosi<T> ListNode<T>::insertAsPred(const T &e) {
-    auto x = new ListNode<T>(e,pred,this);
+    auto x = new ListNode<T>(e, pred, this);
     pred->succ = x;
     pred = x;
     return x;
 }
 
-template <typename T>
+template<typename T>
 ListNodePosi<T> ListNode<T>::insertAsSucc(const T &e) {
-    auto x = new ListNode<T>(e, this , succ);
+    auto x = new ListNode<T>(e, this, succ);
     succ->pred = x;
     succ = x;
     return x;

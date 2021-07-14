@@ -4,15 +4,15 @@
 
 #include "C5.h"
 
-int main( ){
+int main() {
     List_visit visit;
     MyBinTree<int> myBinTree;
 
     myBinTree.insertAsRoot(1);
-    myBinTree.insertAsLC(myBinTree.root(),2);
-    myBinTree.insertAsRC(myBinTree.root(),3);
-    myBinTree.insertAsRC(myBinTree.root()->lc,4);
-    myBinTree.insertAsLC(myBinTree.root()->rc,5);
+    myBinTree.insertAsLC(myBinTree.root(), 2);
+    myBinTree.insertAsRC(myBinTree.root(), 3);
+    myBinTree.insertAsRC(myBinTree.root()->lc, 4);
+    myBinTree.insertAsLC(myBinTree.root()->rc, 5);
 
     myBinTree.travPost(visit);
 

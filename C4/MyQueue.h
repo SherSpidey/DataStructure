@@ -9,15 +9,18 @@
 
 #include "../C3/MyList.h"
 
-template <typename T> class MyQueue: public MyList<T>{
+template<typename T>
+class MyQueue : public MyList<T> {
 public:
-    void enqueue(T const&e){
+    void enqueue(T const &e) {
         MyQueue::insertAsLast(e);
     }
-    T dequeue(){
+
+    T dequeue() {
         return MyQueue::remove(MyQueue::first());
     }
-    T& front(){
+
+    T &front() {
         return MyQueue::first()->data;
     }
 };

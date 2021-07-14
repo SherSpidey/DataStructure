@@ -9,19 +9,20 @@
 
 #include "MyList.h"
 #include "iostream"
+
 using namespace std;
 
 
-class List_visit{
+class List_visit {
 
 public:
-    template <typename T>
-    void operator() (T e){
-      cout<<e<<' ';
+    template<typename T>
+    void operator()(T e) {
+        cout << e << ' ';
     }
 
-    void operator() (){
-        cout<<endl;
+    void operator()() {
+        cout << endl;
     }
 
 };

@@ -52,12 +52,12 @@ bool paren(const char exp[], int lo, int hi) {
     int mi = divide(exp, lo, hi);
     if (mi > hi)
         return false;
-    return paren(exp,lo+1,mi-1)&&paren(exp, mi + 1, hi);
+    return paren(exp, lo + 1, mi - 1) && paren(exp, mi + 1, hi);
 }
 
-bool paren_2(const char exp[], int lo, int hi){
+bool paren_2(const char exp[], int lo, int hi) {
     MyStack<char> S;        //使用栈记录已发现但未匹配的括号
-    for(int i=lo; i<= hi;i++)
+    for (int i = lo; i <= hi; i++)
         switch (exp[i]) {
             case '(':
             case '[':
@@ -65,15 +65,15 @@ bool paren_2(const char exp[], int lo, int hi){
                 S.push(exp[i]);
                 break;
             case ')':
-                if (S.empty()||'('!=S.pop())
+                if (S.empty() || '(' != S.pop())
                     return false;
                 break;
             case ']':
-                if (S.empty()||'['!=S.pop())
+                if (S.empty() || '[' != S.pop())
                     return false;
                 break;
             case '}':
-                if (S.empty()||'{'!=S.pop())
+                if (S.empty() || '{' != S.pop())
                     return false;
                 break;
             default:
@@ -84,8 +84,8 @@ bool paren_2(const char exp[], int lo, int hi){
 
 bool reParen(const char exp[], int len) {
     MyStack<char> myStack;
-    for (int i =0 ; i < len ; i++){
-        if (exp[i] == ')'){             //当前括号为')'且不为空，出栈
+    for (int i = 0; i < len; i++) {
+        if (exp[i] == ')') {             //当前括号为')'且不为空，出栈
             if (myStack.empty())
                 return false;
             else
@@ -94,31 +94,31 @@ bool reParen(const char exp[], int len) {
         if (exp[i] == '(')
             myStack.push(exp[i]);       //左括号，入栈
     }
-    if(myStack.empty())
+    if (myStack.empty())
         return true;
     return false;
 }
 
-void placeQueen(int N, MyStack<int>& cord){
+void placeQueen(int N, MyStack<int> &cord) {
     MyStack<Queen> solu;
-    Queen q (0,0);  //初始坐标为原点
-    do{
-        if(N<=q.x){         //当前遍历超出棋盘
-            q=solu.pop();   //上一点不符合要求，出栈
+    Queen q(0, 0);  //初始坐标为原点
+    do {
+        if (N <= q.x) {         //当前遍历超出棋盘
+            q = solu.pop();   //上一点不符合要求，出栈
             cord.pop();     //坐标x出栈
             cord.pop();     //坐标y出栈
             q.x++;
         }
         //重载的==可以体现在find函数中
-        if((q.x<N)&&(solu.empty()||solu.find(q)<0)){    //前提条件，在棋盘上才能入栈，然后是没有落子可以随意入栈，有子则需要判断冲突
+        if ((q.x < N) && (solu.empty() || solu.find(q) < 0)) {    //前提条件，在棋盘上才能入栈，然后是没有落子可以随意入栈，有子则需要判断冲突
             solu.push(q);
             cord.push(q.x);
             cord.push(q.y);
-            Queen temp(0,q.y+1);                //创建下一颗棋子，位于当前棋子的下一支路
-            q=temp;
-        }else
+            Queen temp(0, q.y + 1);                //创建下一颗棋子，位于当前棋子的下一支路
+            q = temp;
+        } else
             q.x++;                      //遍历当前支路的下一坐标
-    } while (solu.size()<N);
+    } while (solu.size() < N);
 }
 
 
