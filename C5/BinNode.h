@@ -29,7 +29,7 @@
 //叔叔辈节点
 #define uncle(p) (IsLChild(*((x)->parent))?(x)->parent->rc:(x)->parent->parent->lc)
 //父节点的引用
-#define FromParentTo(x) (IsRoot(x)?_root:(IsLChild(x)?(x).parent->lc:(x).parent->rc))
+#define FromParentTo(x) (IsRoot(x)?this->_root:(IsLChild(x)?(x).parent->lc:(x).parent->rc))
 
 
 template<typename T>

@@ -57,7 +57,9 @@ public:
 };
 
 template<typename T>
-void release(T e) {}
+void release(T e) {
+    delete e;
+}
 
 
 template<typename T>
